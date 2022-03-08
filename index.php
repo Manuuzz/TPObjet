@@ -10,6 +10,20 @@
     <script src='main.js'></script>
 </head>
 <body>
+    <?php 
+    $TableauUser = array();
+    try{ $bdd = new PDO('mysql:host=localhost;dbname=User', 'root', 'root');
+        $req = "SELECT * from User";
+        $reponses = $bdd->query($req);
+            while ($donnees = $reponses->fetch())
+            {
+                array_push($TableauUser,new User($donnees['id'],$donnees['login'],$donnees['mdp']));
+            } 
+
+        } catch (Exception $e) {
+        echo 'Exception reçue : ', $e->getMessage(), "\n";
+        }
+    ?>
     <form action="" method="Post">
             Login: <input type="text" name="login">
             mdp: <input type="text" name="mdp">
@@ -17,19 +31,6 @@
     </form>
 
     <?php 
-        $U1 = new User("Manu", "2021");
-        $U2 = new User("Franck", "2021");
-        $U3 = new User("Hip", "1313");
-        $U4 = new User("Hop", "1212");
-        $U5 = new User("Clap", "1414");
-
-        $TableauUser = array();
-
-        array_push($TableauUser, $U1);
-        array_push($TableauUser, $U2);
-        array_push($TableauUser, $U3);
-        array_push($TableauUser, $U4);
-        array_push($TableauUser, $U5);
 
     if(isset($_POST["connexion"])){
 

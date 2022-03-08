@@ -10,6 +10,7 @@
     <script src='main.js'></script>
 </head>
 <body>
+    <h1>Accueil</h1>
     <?php 
     $TableauUser = array();
     try{ $bdd = new PDO('mysql:host=localhost;dbname=User', 'root', 'root');
@@ -58,5 +59,6 @@
             }
     }          
 ?>
+<a href="exo1.php">Exo 1</a>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php echo "Chargement class User";
+<?php
 
 class User{
     //Propriétes (private)
